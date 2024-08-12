@@ -19,7 +19,7 @@ class FlightTestCase(TestCase):
 
     def test_departures_count(self):
         a = Airport.objects.get(code="AAA")
-        self.assertTrue(a.departures.count(), 3)
+        self.assertTrue(a.departures.count(), 4)
 
     def test_arrivals_count(self):
         b = Airport.objects.get(code="BBB")
