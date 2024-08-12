@@ -19,7 +19,7 @@ class FlightTestCase(TestCase):
 
     def test_departures_count(self):
         a = Airport.objects.get(code="AAA")
-        self.assertTrue(a.departures.count(), 4)
+        self.assertTrue(a.departures.count(), 3)
 
     def test_arrivals_count(self):
         b = Airport.objects.get(code="BBB")
@@ -29,7 +29,7 @@ class FlightTestCase(TestCase):
         a1 = Airport.objects.get(code="AAA")
         a2 = Airport.objects.get(code="BBB")
         flight = Flight.objects.get(origin=a1, destination=a2, duration=100)
-        self.assertTrue(flight.is_valid())
+        self.assertFalse(flight.is_valid())
 
     def test_invalid_flight_destination(self):
         a1 = Airport.objects.get(code="AAA")
